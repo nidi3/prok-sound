@@ -140,7 +140,6 @@ fun generateTone() {
     val line = AudioSystem.getSourceDataLine(af)
     line.open(af, SAMPLE_RATE)
     line.start()
-    val a = System.currentTimeMillis()
     thread {
         var pos = 0
         do {
@@ -155,9 +154,11 @@ fun generateTone() {
             line.write(buf, 0, len)
             pos += len
             Thread.sleep(50)
-        } while (pos < 3.0.toFrame())
-        line.drain()
-        println("t" + (System.currentTimeMillis() - a))
+        } while (pos < 4.0.toFrame())
+        while (line.bufferSize - line.available() > 3000) {
+            Thread.sleep(50)
+        }
+        line.stop()
+        line.close()
     }
-//    line.close()
 }
