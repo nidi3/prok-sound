@@ -19,7 +19,8 @@ before_install:
   - wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
   - tar -xf apache-maven-3.6.3-bin.tar.gz
   - ls
-  - ln -s apache-maven-3.6.3/bin/mvn /usr/bin/mvn
+  - export PATH=$PATH:apache-maven-3.6.3/bin
+  - echo $PATH
   - mvn
 
 before_script:
