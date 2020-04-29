@@ -16,7 +16,11 @@ before_install:
   - curl "https://raw.githubusercontent.com/nidi3/Mavis-CI/master/mavis.sh" --output mavis.sh
   - source mavis.sh
   - install_jdk
-  - install_maven
+  - wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+  - tar -xf apache-maven-3.6.3-bin.tar.gz
+  - ls
+  - ln -s apache-maven-3.6.3/bin/mvn /usr/bin/mvn
+  - mvn
 
 before_script:
   - before_script
