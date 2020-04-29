@@ -1,2 +1,2 @@
 # prok-sound
-Experiments with generating raw waveforms
+Experiments with generating raw waveforms.
