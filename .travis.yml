@@ -1,0 +1,28 @@
+language: bash
+dist: xenial
+os:
+  - linux
+  - osx
+  - windows
+
+env:
+  - JDK="adopt@1.8.0-232"
+
+cache:
+  directories:
+    - $HOME/.m2
+
+before_install:
+  - curl "https://raw.githubusercontent.com/nidi3/Mavis-CI/master/mavis.sh" --output mavis.sh
+  - source mavis.sh
+  - install_jdk
+  - install_maven
+
+before_script:
+  - before_script
+
+script:
+  - script
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
