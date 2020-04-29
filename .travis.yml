@@ -18,11 +18,5 @@ before_install:
   - install_jdk
   - install_maven 3.6.3
 
-before_script:
-  - before_script
-
-script:
-  - script
-
 after_success:
   - bash <(curl -s https://codecov.io/bash)
