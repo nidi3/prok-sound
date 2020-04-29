@@ -11,8 +11,6 @@ env:
 cache:
   directories:
     - $HOME/.m2
-    - /C/ProgramData/chocolatey/lib
-    - /C/Users/travis/.jabba
 
 before_install:
   - curl "https://raw.githubusercontent.com/nidi3/Mavis-CI/master/mavis.sh" --output mavis.sh
